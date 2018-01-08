@@ -1,0 +1,6 @@
+name: Rebuild Cache Access
+description: 'Provide a Rebuild Cache admin toolbar button accessible to every role with the corresponding permission set.'
+package: Custom
+
+type: module
+core: 8.x
