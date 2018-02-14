@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Toolbar Handler Document.
+ */
 
 namespace Drupal\rebuild_cache_access;
 
@@ -34,7 +38,7 @@ class ToolbarHandler implements ContainerInjectionInterface {
   /**
    * ToolbarHandler constructor.
    *
-   * @param \Drupal\Core\Menu\MenuLinkTreeInterface    $menu_link_tree
+   * @param \Drupal\Core\Menu\MenuLinkTreeInterface $menu_link_tree
    *   The menu link tree service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
