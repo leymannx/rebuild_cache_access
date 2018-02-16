@@ -2,8 +2,7 @@
 
 /**
  * @file
- * This module holds functions useful for Drupal development.
- * Please contribute!
+ * This module adds a 'Rebuild Cache' permission and button to the toolbar.
  */
 
 use Drupal\rebuild_cache_access\ToolbarHandler;
@@ -14,6 +13,6 @@ use Drupal\rebuild_cache_access\ToolbarHandler;
 function rebuild_cache_access_toolbar() {
 
   return \Drupal::service('class_resolver')
-                ->getInstanceFromDefinition(ToolbarHandler::class)
-                ->toolbar();
+    ->getInstanceFromDefinition(ToolbarHandler::class)
+    ->toolbar();
 }
