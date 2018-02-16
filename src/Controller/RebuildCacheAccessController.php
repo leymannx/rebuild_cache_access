@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Rebuild Cache Access Controller Document.
- */
 
 namespace Drupal\rebuild_cache_access\Controller;
 

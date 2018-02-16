@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Toolbar Handler Document.
- */
 
 namespace Drupal\rebuild_cache_access;
 
