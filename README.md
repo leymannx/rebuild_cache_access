@@ -4,9 +4,7 @@ https://www.drupal.org/project/rebuild_cache_access
 
 This module provides a new permission: `rebuild cache access`. Every role with
 this permission set will have a nice and big Rebuild Cache admin toolbar button.
-
-Clicking this button will simply fire [`drupal_flush_all_caches()`][1]. End of
-story.
+Clicking this button simply fires [`drupal_flush_all_caches()`][1]. That's all.
 
 Note: Normally it should be sufficient that all relevant caches are flushed
 automatically when changes to content are made. Nevertheless in real world it
