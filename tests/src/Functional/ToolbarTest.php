@@ -63,4 +63,5 @@ class ToolbarTest extends BrowserTestBase {
     $this->clickLink('Rebuild Cache');
     $this->assertSession()->pageTextContains('All caches cleared.');
   }
+
 }

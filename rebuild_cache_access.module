@@ -6,6 +6,7 @@
  */
 
 use Drupal\rebuild_cache_access\ToolbarHandler;
+use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_toolbar().
@@ -20,7 +21,7 @@ function rebuild_cache_access_toolbar() {
 /**
  * Implements hook_help().
  */
-function rebuild_cache_access_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+function rebuild_cache_access_help($route_name, RouteMatchInterface $route_match) {
 
   switch ($route_name) {
     case 'help.page.rebuild_cache_access':
