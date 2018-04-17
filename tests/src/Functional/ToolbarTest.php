@@ -21,9 +21,13 @@ class ToolbarTest extends BrowserTestBase {
    */
   public function testRoute() {
 
+    // First, a user without rebuild cache permission should not be allowed
+    // to access the route.
     $this->drupalGet('rebuild-cache-access/rebuild-cache');
     $this->assertSession()->statusCodeEquals(403);
 
+    // Second, a user with rebuild cache permission should be allowed
+    // to access the route.
     $account = $this->drupalCreateUser(['rebuild cache access']);
     $this->drupalLogin($account);
 
@@ -36,13 +40,27 @@ class ToolbarTest extends BrowserTestBase {
    */
   public function testButton() {
 
-    $account = $this->drupalCreateUser([
+    // First, a user without rebuild cache permission should not see the button.
+    $editor = $this->drupalCreateUser([
+      'access toolbar',
+    ]);
+    $this->drupalLogin($editor);
+
+    $this->drupalGet('');
+    $this->assertSession()->pageTextNotContains('Rebuild Cache');
+
+    // Second, a user with rebuild cache permission should see the button.
+    $developer = $this->drupalCreateUser([
       'access toolbar',
       'rebuild cache access',
     ]);
-    $this->drupalLogin($account);
+    $this->drupalLogin($developer);
 
     $this->drupalGet('');
     $this->assertSession()->pageTextContains('Rebuild Cache');
+
+    // Click the button.
+    $this->clickLink('Rebuild Cache');
+    $this->assertSession()->pageTextContains('All caches cleared.');
   }
 }
