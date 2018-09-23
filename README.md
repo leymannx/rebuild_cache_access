@@ -1,6 +1,6 @@
 # Rebuild Cache Access
 
-https://www.drupal.org/project/rebuild_cache_access
+`composer require drupal/rebuild_cache_access`
 
 This module provides a new permission: `rebuild cache access`. Every role with
 this permission set will have a nice and big Rebuild Cache admin toolbar button.
