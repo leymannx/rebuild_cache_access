@@ -46,7 +46,7 @@ class RebuildCacheAccessController extends ControllerBase {
    */
   public function rebuildCache() {
     drupal_flush_all_caches();
-    drupal_set_message($this->t('All caches cleared.'));
+    $this->messenger()->addMessage($this->t('All caches cleared.'));
     return new RedirectResponse($this->reloadPage());
   }
 
