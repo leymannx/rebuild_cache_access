@@ -2,9 +2,7 @@
 
 namespace Drupal\rebuild_cache_access;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\Core\Menu\MenuLinkTreeInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
@@ -18,13 +16,6 @@ class ToolbarHandler implements ContainerInjectionInterface {
   use StringTranslationTrait;
 
   /**
-   * The menu link tree service.
-   *
-   * @var \Drupal\Core\Menu\MenuLinkTreeInterface
-   */
-  protected $menuLinkTree;
-
-  /**
    * The current user.
    *
    * @var \Drupal\Core\Session\AccountProxyInterface
@@ -34,15 +25,10 @@ class ToolbarHandler implements ContainerInjectionInterface {
   /**
    * ToolbarHandler constructor.
    *
-   * @param \Drupal\Core\Menu\MenuLinkTreeInterface $menu_link_tree
-   *   The menu link tree service.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config factory.
    * @param \Drupal\Core\Session\AccountProxyInterface $account
    *   The current user.
    */
-  public function __construct(MenuLinkTreeInterface $menu_link_tree, ConfigFactoryInterface $config_factory, AccountProxyInterface $account) {
-    $this->menuLinkTree = $menu_link_tree;
+  public function __construct(AccountProxyInterface $account) {
     $this->account      = $account;
   }
 
@@ -51,8 +37,6 @@ class ToolbarHandler implements ContainerInjectionInterface {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('toolbar.menu_tree'),
-      $container->get('config.factory'),
       $container->get('current_user')
     );
   }
